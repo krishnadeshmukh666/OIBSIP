@@ -296,7 +296,7 @@ This was my first internship task and gave me practical experience with Python-b
 
 # Author
 
-**Krishna Deshmukh**
+Krishna Deshmukh
 
 M.Sc.(Statistics)
 
