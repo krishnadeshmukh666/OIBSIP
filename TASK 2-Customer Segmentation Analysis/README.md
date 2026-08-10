@@ -314,7 +314,7 @@ rfm_scaled = pd.DataFrame(
 
 Scaling was important because K-Means uses distances to form clusters.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # 13. Finding the Number of Clusters
 
@@ -360,7 +360,7 @@ rfm['Cluster'] = kmeans.fit_predict(rfm_scaled)
 
 Each customer was assigned to one of the three clusters.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # 15. Customer Segments
 
@@ -550,7 +550,7 @@ Skills: Python | SQL | Excel | Power BI | Data Analysis | Machine Learning
 
 # Internship
 
-This project was completed as part of my **Data Analytics Internship**.
+This project was completed as part of my Data Analytics Internship.
 
 Project: RFM Analysis and K-Means Customer Segmentation
 
