@@ -159,7 +159,7 @@ Two columns, `Unnamed: 22` and `fulfilled-by`, were removed because they were no
 df = df.drop(columns=['Unnamed: 22', 'fulfilled-by'])
 ```
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # 5. Descriptive Statistics
 
@@ -306,6 +306,6 @@ Skills: Python | SQL | Excel | Power BI | Data Analysis
 
 # Internship
 
-This project was completed as part of my **Data Analytics Internship**.
+This project was completed as part of my Data Analytics Internship.
 
 Task 1 – Amazon Sales Data Analysis
