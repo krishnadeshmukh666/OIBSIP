@@ -540,7 +540,7 @@ Overall, this task gave me practical experience in customer analytics, feature e
 
 # Author
 
-**Krishna Deshmukh**
+Krishna Deshmukh
 
 M.Sc. Statistics
 
