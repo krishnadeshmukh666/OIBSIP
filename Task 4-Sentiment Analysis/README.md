@@ -1,6 +1,6 @@
 # Yelp Review Sentiment Analysis Using NLP
 
-## Internship Task 4 – Sentiment Analysis
+# Internship Task 4 – Sentiment Analysis
 
 This project was completed as the fourth task of my data analytics internship.
 
@@ -380,7 +380,7 @@ y = df['sentiment']
 
 # 14. Train-Test Split
 
-The dataset was divided into training and testing data using an **80/20 split**.
+The dataset was divided into training and testing data using an 80/20 split.
 
 ```python
 x_train, x_test, y_train, y_test = train_test_split(
@@ -511,37 +511,37 @@ The results obtained from the notebook were:
 
 | Model                   |   Accuracy |  Precision |     Recall |   F1-Score |
 | ----------------------- | ---------: | ---------: | ---------: | ---------: |
-| Logistic Regression     |   84.51%   |      —     |      —     |     —      |
-| Multinomial Naive Bayes |      —     |   79.12%   |      —     |     —      |
-| Linear SVM              |   84.23%   |      —     |   69.96%   |   70.39%   |
+| Logistic Regression     |   84.51%   |   84.51%   |   64.28    |   66.00    |
+| Multinomial Naive Bayes |   80.79%   |   79.12%   |   53.89    |   53.41    |
+| Linear SVM              |   84.23%   |   71.13    |   70.00%   |   70.39%   |
 
 The main performance observations were:
 
-### Logistic Regression
+# Logistic Regression
 
-Logistic Regression achieved the highest accuracy at **84.51%**.
+Logistic Regression achieved the highest accuracy at 84.51%.
 
 However, its recall and F1-score were lower than Linear SVM.
 
-### Multinomial Naive Bayes
+# Multinomial Naive Bayes
 
-Multinomial Naive Bayes achieved the highest precision at **79.12%**.
+Multinomial Naive Bayes achieved the highest precision at 79.12%.
 
 However, it had the lowest recall and F1-score among the three models.
 
-### Linear SVM
+# Linear SVM
 
 Linear SVM achieved:
 
-* Accuracy: **84.23%**
-* Recall: **69.96%**
-* F1-score: **70.39%**
+* Accuracy: 84.23%
+* Recall: 69.96%
+* F1-score: 70.39%
 
 Although its accuracy was slightly lower than Logistic Regression, it achieved the best F1-score and recall.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 🔲 20. Confusion Matrix
+# 20. Confusion Matrix
 
 Confusion matrices were created for each model.
 
@@ -553,9 +553,9 @@ A confusion matrix helps understand:
 
 This was particularly important for the Neutral class because it had fewer observations than the Positive class.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# ☁️ 21. Word Cloud Analysis
+# 21. Word Cloud Analysis
 
 I also created word clouds for each sentiment category.
 
@@ -581,9 +581,9 @@ really
 
 This helped make the word clouds more focused on sentiment-related vocabulary.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 😊 22. Positive Review Word Cloud
+# 22. Positive Review Word Cloud
 
 A word cloud was generated using reviews classified as Positive.
 
@@ -595,9 +595,9 @@ positive_text = " ".join(
 
 The visualization provides a quick view of frequently occurring terms in positive reviews.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 😞 23. Negative Review Word Cloud
+# 23. Negative Review Word Cloud
 
 The same approach was used for negative reviews.
 
@@ -609,9 +609,9 @@ negative_text = " ".join(
 
 The negative word cloud helps identify commonly used terms associated with negative customer experiences.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 😐 24. Neutral Review Word Cloud
+# 24. Neutral Review Word Cloud
 
 A separate word cloud was created for neutral reviews.
 
@@ -623,9 +623,9 @@ neutral_text = " ".join(
 
 This helps identify the common vocabulary used in reviews with a neutral rating.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 🔍 25. Error Analysis
+# 25. Error Analysis
 
 After model evaluation, I performed error analysis to understand why some reviews were classified incorrectly.
 
@@ -653,93 +653,48 @@ misclassified = predictions[
 
 Five misclassified reviews were examined manually.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 🔎 26. Examples of Misclassification
+# 26. Examples of Misclassification
 
-### Example 1 – Positive predicted as Negative
+# Example 1 – Positive predicted as Negative
 
 One review contained several strong negative words such as disappointment and bad business practices. However, the reviewer later explained that the issue had been resolved and expressed satisfaction.
 
 The model focused heavily on the negative words and did not fully understand the change in sentiment throughout the review.
 
----
 
-### Example 2 – Neutral predicted as Positive
+# Example 2 – Neutral predicted as Positive
 
 One 3-star review contained several positive expressions such as praise for the food and service but also included some criticism.
 
 Since the sentiment label was created from the star rating, the review was labeled Neutral even though much of its text sounded positive.
 
-This shows a possible difference between **rating-based labels and actual textual sentiment**.
+This shows a possible difference between rating-based labels and actual textual sentiment.
 
----
-
-### Example 3 – Negative predicted as Positive
+# Example 3 – Negative predicted as Positive
 
 A review mentioned serious problems and included the statement that the customer would never return. It also contained sarcasm.
 
 The TF-IDF + SVM model could not fully understand the sarcasm and contextual meaning, which contributed to the incorrect Positive prediction.
 
----
 
-### Example 4 – Neutral predicted as Positive
+# Example 4 – Neutral predicted as Positive
 
 Another review criticized one particular food item but also included positive comments about the restaurant and other food.
 
 The positive words received strong TF-IDF representation, causing the model to predict Positive even though the rating-based label was Neutral.
 
----
 
-### Example 5 – Negative predicted as Positive
+# Example 5 – Negative predicted as Positive
 
 One review contained positive expressions about the chef and lunch but clearly stated that the restaurant was not authentic and was not recommended for the intended cuisine.
 
 The model was influenced by the positive vocabulary and had difficulty understanding the overall recommendation and negation.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# ⚠️ 27. Limitations of the Approach
-
-The error analysis showed several limitations of traditional TF-IDF-based sentiment classification.
-
-### 1. Difficulty with sarcasm
-
-Models based on individual word features may struggle to understand sarcastic statements.
-
-### 2. Difficulty with negation
-
-The meaning of:
-
-```text
-"I recommend this restaurant."
-```
-
-is very different from:
-
-```text
-"I do not recommend this restaurant."
-```
-
-TF-IDF does not fully understand this contextual relationship.
-
-### 3. Context limitations
-
-TF-IDF mainly represents the importance of individual words and n-grams. It does not understand the complete meaning of a review in the same way as modern language models.
-
-### 4. Rating-based labels
-
-The sentiment labels in this project were created from star ratings.
-
-A 3-star review was labeled Neutral even when the actual text contained more positive or negative language.
-
-### 5. Class imbalance
-
-The dataset contains substantially more Positive reviews than Neutral reviews, which can make minority-class prediction more difficult.
-
----
-
-# 💡 28. Key Findings
+# 27. Key Findings
 
 The main findings from the project were:
 
@@ -747,154 +702,63 @@ The main findings from the project were:
 
 2. TF-IDF with unigrams and bigrams provided a useful numerical representation of the review text.
 
-3. Logistic Regression achieved the highest accuracy of **84.51%**.
+3. Logistic Regression achieved the highest accuracy of 84.51%.
 
-4. Multinomial Naive Bayes achieved the highest precision of **79.12%**.
+4. Multinomial Naive Bayes achieved the highest precision of 79.12%.
 
-5. Linear SVM achieved the highest recall (**69.96%**) and F1-score (**70.39%**).
+5. Linear SVM achieved the highest recall (69.96%) and F1-score (70.39%).
 
 6. Although Logistic Regression had slightly higher accuracy, Linear SVM was selected as the preferred model because F1-score and recall are more useful when evaluating an imbalanced multi-class problem.
 
 7. Error analysis showed that sarcasm, negation, context, and differences between star ratings and textual sentiment were common reasons for incorrect predictions.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 🏆 29. Final Model Selection
+# 28. Final Model Selection
 
-Based on the evaluation results, **Linear SVM was selected as the preferred model**.
+Based on the evaluation results, Linear SVM was selected as the preferred model.
 
-Logistic Regression achieved the highest accuracy:
+Logistic Regression achieved the highest accuracy: 84.51%
 
-**84.51%**
-
-However, Linear SVM achieved:
-
-**F1-score: 70.39%**
-
-and
-
-**Recall: 69.96%**
+However, Linear SVM achieved: F1-score: 70.39% and Recall: 69.96%
 
 Since the dataset is imbalanced, F1-score gives a more balanced view of the model's performance across the sentiment classes.
 
 Therefore, Linear SVM provided the most suitable overall performance for this project.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 🌍 30. Real-World Applications
+# 29. Real-World Applications
 
 The developed sentiment analysis approach can be used in several practical situations.
 
-### Restaurant Review Analysis
+# Restaurant Review Analysis
 
 Businesses can automatically classify customer reviews as Positive, Neutral, or Negative.
 
-### Business Reputation Management
+# Business Reputation Management
 
 Companies can identify negative reviews and respond to dissatisfied customers.
 
-### Product Review Analysis
+# Product Review Analysis
 
 The same approach can be applied to customer reviews on platforms such as Amazon or Flipkart.
 
-### Social Media Monitoring
+# Social Media Monitoring
 
 Companies can analyze public opinions about their brands, products, or campaigns.
 
-### Customer Support
+# Customer Support
 
 Negative reviews can be automatically identified and prioritized for faster response.
 
-### Market Research
+# Market Research
 
 Sentiment analysis can help businesses understand customer opinions and identify areas that need improvement.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# ⚠️ 31. Limitations
-
-Some limitations of this project are:
-
-* The dataset has an imbalanced class distribution.
-* The sentiment labels are based on star ratings rather than manually labeled text.
-* TF-IDF has limited ability to understand context.
-* Sarcasm is difficult for the model to identify.
-* Negation and long-range relationships between words can be difficult to capture.
-* The model may perform differently on reviews from another domain.
-* More advanced NLP approaches such as word embeddings or transformer-based models could potentially improve performance.
-
----
-
-# 📁 Project Structure
-
-```text
-Yelp-Sentiment-Analysis/
-│
-├── analysis.ipynb
-├── yelp_dataset_reviews.csv
-└── README.md
-```
-
-If the dataset cannot be uploaded to GitHub because of its size or licensing restrictions, keep it locally and mention the dataset source in the README.
-
----
-
-# ▶️ How to Run the Project
-
-### 1. Clone the repository
-
-```bash
-git clone <your-repository-link>
-```
-
-### 2. Open the project folder
-
-```bash
-cd Yelp-Sentiment-Analysis
-```
-
-### 3. Install the required libraries
-
-```bash
-pip install pandas numpy matplotlib scikit-learn nltk contractions wordcloud
-```
-
-### 4. Download the required NLTK resources
-
-The notebook downloads:
-
-```python
-nltk.download('punkt_tab')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-```
-
-### 5. Add the dataset
-
-Place the dataset in the project directory:
-
-```text
-yelp_dataset_reviews.csv
-```
-
-### 6. Open the notebook
-
-Open:
-
-```text
-analysis.ipynb
-```
-
-using Jupyter Notebook or JupyterLab.
-
-### 7. Run the notebook
-
-Run the cells from beginning to end to reproduce the analysis.
-
----
-
-# 🎓 What I Learned
+# What I Learned
 
 This task helped me understand how Natural Language Processing can be used to analyze customer opinions.
 
@@ -917,36 +781,34 @@ During this project, I learned how to:
 * Investigate model errors through manual error analysis.
 * Connect machine learning results with real-world business applications.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 🏁 Conclusion
+# Conclusion
 
 This project focused on classifying Yelp customer reviews into Positive, Neutral, and Negative sentiment categories.
 
 The review text was cleaned using several NLP preprocessing techniques and converted into numerical features using TF-IDF. Three machine learning models were then trained and compared.
 
-Logistic Regression achieved the highest accuracy at **84.51%**, while Linear SVM achieved the highest recall and F1-score. Because the dataset is imbalanced, I selected Linear SVM as the preferred model based mainly on its F1-score of **70.39%** and recall of **69.96%**.
+Logistic Regression achieved the highest accuracy at 84.51%, while Linear SVM achieved the highest recall and F1-score. Because the dataset is imbalanced, I selected Linear SVM as the preferred model based mainly on its F1-score of 70.39% and recall of 69.96%.
 
 The error analysis also showed that traditional TF-IDF-based models can struggle with sarcasm, negation, context, and cases where the star rating does not completely match the language used in the review.
 
-Overall, this task gave me practical experience in **NLP, text preprocessing, TF-IDF feature extraction, machine learning classification, model evaluation, and sentiment analysis**.
+Overall, this task gave me practical experience in NLP, text preprocessing, TF-IDF feature extraction, machine learning classification, model evaluation, and sentiment analysis.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 👤 Author
+# Author
 
-**Krishna Deshmukh**
+Krishna Deshmukh
 
-M.Sc. Statistics
+M.Sc.(Statistics)
 
-**Skills:** Python | NLP | Machine Learning | SQL | Excel | Power BI | Data Analysis
+Skills: Python | NLP | Machine Learning | SQL | Excel | Power BI | Data Analysis
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 📌 Internship
+# Internship
 
-**Internship Task:** Task 4 – Sentiment Analysis
+This project was completed as part of my Data Analytics Internship.
 
-**Project:** Yelp Review Sentiment Analysis Using NLP
-
-**Status:** Completed
+Project: Yelp Review Sentiment Analysis Using NLP
